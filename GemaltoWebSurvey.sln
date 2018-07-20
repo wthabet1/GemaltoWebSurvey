@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemaltoWebSurvey", "GemaltoWebSurvey\GemaltoWebSurvey.csproj", "{D1EDA874-4653-4ADF-9DA4-7EF07DC2E2EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GemaltoWebSurvey.Tests", "GemaltoWebSurvey.Tests\GemaltoWebSurvey.Tests.csproj", "{EE8F9BCB-7219-4ADB-82FA-5E3713DC4C30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1EDA874-4653-4ADF-9DA4-7EF07DC2E2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EDA874-4653-4ADF-9DA4-7EF07DC2E2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EDA874-4653-4ADF-9DA4-7EF07DC2E2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EDA874-4653-4ADF-9DA4-7EF07DC2E2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8F9BCB-7219-4ADB-82FA-5E3713DC4C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8F9BCB-7219-4ADB-82FA-5E3713DC4C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8F9BCB-7219-4ADB-82FA-5E3713DC4C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8F9BCB-7219-4ADB-82FA-5E3713DC4C30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2C5C685-ACAE-4C7A-BB48-F296C231DB7E}
+	EndGlobalSection
+EndGlobal
