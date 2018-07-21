@@ -11,7 +11,7 @@ namespace GemaltoWebSurvey.Models
     {
         public Survey()
         {
-            Recommendation = 0;
+            //Recommendation = 0;
             Satisfaction = string.Empty;
             ProductDescription = new List<string>();
             Suitability = string.Empty;
@@ -62,6 +62,20 @@ namespace GemaltoWebSurvey.Models
 
         [DisplayName("10. Do you have any other comments, questions, or concerns?")]
         public string Comments { get; set; }
+
+        public List<string> GetSatisfactionLevels() { return _strSatisfactionLevels;  }
+
+        public List<string> GetSuitabilityOptions() { return _suitability; }
+
+        public List<string> GetQualityOptions() { return _quality;  }
+
+        public List<string> GetValueForMoneyOptions() { return _valueForMoney;  }
+         
+        public List<string> GetResponsivenessOptions() { return _responsiveness;  }
+
+        public List<string> GetTimeAsCustomerOptions() { return _timeAsCustomer;  }
+
+        public List<string> GetRepurchaseLikelihoodOptions() { return _repurchaseLikelihood;  }
 
         private List<string> _strSatisfactionLevels = new List<string> { "Very satisfied",
                                                                          "Somewhat satisfied",
