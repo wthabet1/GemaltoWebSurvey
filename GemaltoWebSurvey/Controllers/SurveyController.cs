@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GemaltoWebSurvey.Models; 
 
 namespace GemaltoWebSurvey.Controllers
 {
@@ -23,7 +24,8 @@ namespace GemaltoWebSurvey.Controllers
         // GET: Survey/Create
         public ActionResult Create()
         {
-            return View();
+            Survey newSurvey = new Survey();
+            return View(newSurvey);
         }
 
         // POST: Survey/Create

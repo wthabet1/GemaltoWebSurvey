@@ -9,46 +9,59 @@ namespace GemaltoWebSurvey.Models
 {
     public class Survey
     {
+        public Survey()
+        {
+            Recommendation = 0;
+            Satisfaction = string.Empty;
+            ProductDescription = new List<string>();
+            Suitability = string.Empty;
+            ProductQuality = string.Empty;
+            ValueForMoney = string.Empty;
+            Responsiveness = string.Empty;
+            CustomerHistory = string.Empty;
+            Repurchase = string.Empty;
+            Comments = string.Empty;
+        }
 
         [Required]
         [Range(0, 10, ErrorMessage = "Response must be between 0 for unlikely and 10 for extremely likely.")]
         [DisplayName("1. How likely is it that you would recommend this company to a friend or colleague?")]
-        int Recommendation { get; set; }
+        public int Recommendation { get; set; }
 
         [Required]
         [DisplayName("2. Overall, how satisfied or dissatisfied are you with our company?")]
-        string Satisfaction { get; set; }
+        public string Satisfaction { get; set; }
 
         [Required]
         [DisplayName("3. Which of the following words would you use to describe our products? Select all that apply.")]
-        List<string> ProductDescription { get; set; }
+        public List<string> ProductDescription { get; set; }
         
         [Required]
         [DisplayName("4. How well do our products meet your needs?")]
-        string Suitability { get; set; }
+        public string Suitability { get; set; }
 
         [Required]
         [DisplayName("5. How would you rate the quality of the product?")]
-        string ProductQuality { get; set; }
+        public string ProductQuality { get; set; }
 
         [Required]
         [DisplayName("6. How would you rate the value for money of the product?")]
-        string ValueForMoney { get; set; }
+        public string ValueForMoney { get; set; }
 
         [Required]
         [DisplayName("7. How responsive have we been to your questions or concerns about our products?")]
-        int Responsiveness { get; set; }
+        public string Responsiveness { get; set; }
 
         [Required]
         [DisplayName("8. How long have you been a customer of our company?")]
-        string CustomerHistory { get; set; }
+        public string CustomerHistory { get; set; }
 
         [Required]
         [DisplayName("9. How likely are you to purchase any of our products again?")]
-        string Repurchase { get; set; }
+        public string Repurchase { get; set; }
 
         [DisplayName("10. Do you have any other comments, questions, or concerns?")]
-        string Comments { get; set; }
+        public string Comments { get; set; }
 
         private List<string> _strSatisfactionLevels = new List<string> { "Very satisfied",
                                                                          "Somewhat satisfied",
