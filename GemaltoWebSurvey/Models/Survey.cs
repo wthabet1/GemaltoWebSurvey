@@ -67,6 +67,8 @@ namespace GemaltoWebSurvey.Models
 
         public List<string> GetSuitabilityOptions() { return _suitability; }
 
+        public List<string> GetProductDescriptionOptions() { return _productDescriptions;  }
+
         public List<string> GetQualityOptions() { return _quality;  }
 
         public List<string> GetValueForMoneyOptions() { return _valueForMoney;  }
