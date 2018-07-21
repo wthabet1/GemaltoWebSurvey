@@ -11,7 +11,7 @@ namespace GemaltoWebSurvey.Models
     {
         public Survey()
         {
-            //Recommendation = 0;
+            Recommendation = null;
             Satisfaction = string.Empty;
             ProductDescription = new List<string>();
             Suitability = string.Empty;
@@ -26,7 +26,7 @@ namespace GemaltoWebSurvey.Models
         [Required]
         [Range(0, 10, ErrorMessage = "Response must be between 0 for unlikely and 10 for extremely likely.")]
         [DisplayName("1. How likely is it that you would recommend this company to a friend or colleague?")]
-        public int Recommendation { get; set; }
+        public int? Recommendation { get; set; }
 
         [Required]
         [DisplayName("2. Overall, how satisfied or dissatisfied are you with our company?")]
@@ -60,6 +60,7 @@ namespace GemaltoWebSurvey.Models
         [DisplayName("9. How likely are you to purchase any of our products again?")]
         public string Repurchase { get; set; }
 
+        [DataType(DataType.MultilineText)]
         [DisplayName("10. Do you have any other comments, questions, or concerns?")]
         public string Comments { get; set; }
 

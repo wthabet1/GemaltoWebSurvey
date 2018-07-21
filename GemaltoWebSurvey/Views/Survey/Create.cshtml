@@ -29,7 +29,7 @@
             @Html.DropDownListFor(model => model.Satisfaction,
                                   new SelectList(Model.GetSatisfactionLevels()),
                                   "-- Select Response --",
-                                  new { @class = "form-control dropdown" })
+                                  new { @class = "form-control" })
 
             @Html.ValidationMessageFor(model => model.Satisfaction, "", new { @class = "text-danger" })
         </div>
@@ -54,7 +54,7 @@
             @Html.DropDownListFor(model => model.Suitability,
                        new SelectList(Model.GetSuitabilityOptions()),
                        "-- Select Response --",
-                       new { @class = "form-control dropdown" })
+                       new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Suitability, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -65,7 +65,7 @@
             @Html.DropDownListFor(model => model.ProductQuality,
                                   new SelectList(Model.GetQualityOptions()),
                                   "-- Select Response --",
-                                  new { @class = "form-control dropdown" })
+                                  new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.ProductQuality, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -76,7 +76,7 @@
             @Html.DropDownListFor(model => model.ValueForMoney,
                                   new SelectList(Model.GetValueForMoneyOptions()),
                                   "-- Select Response --",
-                                  new { @class = "form-control dropdown" })
+                                  new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.ValueForMoney, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -87,7 +87,7 @@
             @Html.DropDownListFor(model => model.Responsiveness,
                                   new SelectList(Model.GetResponsivenessOptions()),
                                   "-- Select Response --",
-                                  new { @class = "form-control dropdown" })
+                                  new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Responsiveness, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -98,7 +98,7 @@
             @Html.DropDownListFor(model => model.CustomerHistory,
                                   new SelectList(Model.GetTimeAsCustomerOptions()),
                                   "-- Select Response --",
-                                  new { @class = "form-control dropdown" })
+                                  new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.CustomerHistory, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -109,7 +109,7 @@
             @Html.DropDownListFor(model => model.Repurchase,
                                   new SelectList(Model.GetRepurchaseLikelihoodOptions()),
                                   "-- Select Response --",
-                                  new { @class = "form-control dropdown" })
+                                  new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Repurchase, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-6" })
         <div class="col-md-6">
-            @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Comments, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
         </div>
     </div>
