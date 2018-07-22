@@ -16,9 +16,21 @@ namespace GemaltoWebSurvey.Controllers
             return View();
         }
 
-        // GET: Survey/Details/5
-        public ActionResult Details(int id)
+        // GET: Survey/SurveyReport
+        public ActionResult SurveyReport()
         {
+            string strSurveyAsJsonObjects = string.Empty;
+            var dataFile = Server.MapPath("~/App_Data/data.txt");
+            if (System.IO.File.Exists(dataFile))
+            {
+                strSurveyAsJsonObjects = System.IO.File.ReadAllText(@dataFile);
+                strSurveyAsJsonObjects = strSurveyAsJsonObjects.TrimEnd(',');
+
+                strSurveyAsJsonObjects = "[" + strSurveyAsJsonObjects + "]";
+                List<Survey> surveys = JsonConvert.DeserializeObject<List<Survey>>(strSurveyAsJsonObjects);
+                SurveyReport report = new SurveyReport(surveys);
+                return View(report);
+            }
             return View();
         }
 

@@ -1,0 +1,98 @@
+﻿@model GemaltoWebSurvey.Models.SurveyReport
+
+@{
+    ViewBag.Title = "SurveyReport";
+}
+
+<h2>SurveyReport</h2>
+
+<div>
+    <h4>SurveyReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SurveyTakers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurveyTakers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageRecommendations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageRecommendations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatisfiedCustomers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatisfiedCustomers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsesWithHighQuality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsesWithHighQuality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositiveProductFeedback)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositiveProductFeedback)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuitableProdctResponses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuitableProdctResponses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsiveCustomerCare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsiveCustomerCare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstablishedCustomers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstablishedCustomers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValueForMoney)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValueForMoney)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponsesWithComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponsesWithComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
