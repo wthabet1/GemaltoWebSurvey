@@ -22,16 +22,16 @@ namespace GemaltoWebSurvey.Controllers
             return View();
         }
 
-        // GET: Survey/Create
-        public ActionResult Create()
+        // GET: Survey/TakeSurvey
+        public ActionResult TakeSurvey()
         {
             Survey newSurvey = new Survey();
             return View(newSurvey);
         }
 
-        // POST: Survey/Create
+        // POST: Survey/TakeSurvey
         [HttpPost]
-        public ActionResult Create(Survey newSurvey)
+        public ActionResult TakeSurvey(Survey newSurvey)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace GemaltoWebSurvey.Controllers
                     System.IO.File.AppendAllText(@dataFile, strNewSurveyAsJoson);
                 }
 
-                return RedirectToAction("Create");
+                return RedirectToAction("TakeSurvey");
             }
             catch
             {
