@@ -15,6 +15,7 @@ namespace GemaltoWebSurvey.Models
             int _intSatisfiedCustomers = 0;
             int _intHighQualityResponse = 0;
             int _intPositiveProductDesc = 0;
+            int _intNegativeProductDesc = 0;
             int _intSuitableProductResp = 0;
             int _intResponsiveCustomerCare = 0;
             int _intEstablishedCustomer = 0;
@@ -28,24 +29,26 @@ namespace GemaltoWebSurvey.Models
                 _dblRecommondataion += (double)survey.Recommendation;
                 if (survey.Satisfied()) _intSatisfiedCustomers++;
                 if (survey.HighQuality()) _intHighQualityResponse++;
-                if (survey.PositiveProductFeedback()) _intPositiveProductDesc++;
                 if (survey.Suitable()) _intSuitableProductResp++;
                 if (survey.IsResponsive()) _intResponsiveCustomerCare++;
                 if (survey.EstablishedCustomer()) _intEstablishedCustomer++;
                 if (survey.HasValueForMoney()) _intValueForMoneyResp++;
                 if (survey.Comments != null) _intResponsesWithComments++;
+                if (survey.PositiveProductFeedback()) _intPositiveProductDesc++;
+                if (survey.NegativeProductFeedback()) _intNegativeProductDesc++;
             }
             if (SurveyTakers > 0)
             {
                 AverageRecommendations = Math.Floor(_dblRecommondataion / SurveyTakers);
-                SatisfiedCustomers = Math.Round((double)(_intSatisfiedCustomers / SurveyTakers), 0);
-                ResponsesWithHighQuality = Math.Round((double)(_intHighQualityResponse / SurveyTakers), 0);
-                PositiveProductFeedback = Math.Round((double)(_intPositiveProductDesc / SurveyTakers), 0);
-                SuitableProdctResponses = Math.Round((double)(_intSuitableProductResp / SurveyTakers), 0);
-                ResponsesWithComments = Math.Round((double)(_intResponsesWithComments / SurveyTakers), 0);
-                EstablishedCustomers = Math.Round((double)(_intEstablishedCustomer / SurveyTakers), 0);
-                ValueForMoney = Math.Round((double)(_intValueForMoneyResp / SurveyTakers), 0);
-                ResponsiveCustomerCare = Math.Round((double)(_intResponsiveCustomerCare / SurveyTakers), 0);
+                SatisfiedCustomers = Math.Round((double)_intSatisfiedCustomers/SurveyTakers, 2);
+                ResponsesWithHighQuality = Math.Round((double)_intHighQualityResponse/SurveyTakers, 2);
+                PositiveProductFeedback = Math.Round((double)_intPositiveProductDesc/SurveyTakers, 2);
+                NegativeProductFeedback = Math.Round((double)_intNegativeProductDesc / SurveyTakers, 2);
+                SuitableProdctResponses = Math.Round((double)_intSuitableProductResp/SurveyTakers, 2);
+                ResponsesWithComments = Math.Round((double)_intResponsesWithComments/SurveyTakers, 2);
+                EstablishedCustomers = Math.Round((double)_intEstablishedCustomer/SurveyTakers, 2);
+                ValueForMoney = Math.Round((double)_intValueForMoneyResp/SurveyTakers, 2);
+                ResponsiveCustomerCare = Math.Round((double)_intResponsiveCustomerCare/SurveyTakers, 2);
             }
         }
 
@@ -66,6 +69,10 @@ namespace GemaltoWebSurvey.Models
         [DisplayFormat(DataFormatString = "{0:P0}")]
         [DisplayName("Positive product feedback")]
         public double PositiveProductFeedback { get; }
+
+        [DisplayFormat(DataFormatString = "{0:P0}")]
+        [DisplayName("Negative product feedback")]
+        public double NegativeProductFeedback { get; }
 
         [DisplayFormat(DataFormatString = "{0:P0}")]
         [DisplayName("Product suitable")]

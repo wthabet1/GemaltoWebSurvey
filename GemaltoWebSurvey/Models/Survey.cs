@@ -120,11 +120,24 @@ namespace GemaltoWebSurvey.Models
 
         public bool PositiveProductFeedback()
         {
-            if (ProductDescription.Equals(_productDescriptions[0]) ||
-                ProductDescription.Equals(_productDescriptions[1]) ||
-                ProductDescription.Equals(_productDescriptions[2]) ||
-                ProductDescription.Equals(_productDescriptions[3]) ||
-                ProductDescription.Equals(_productDescriptions[4]))
+            if (ProductDescription.Contains(_productDescriptions[0]) ||
+                ProductDescription.Contains(_productDescriptions[1]) ||
+                ProductDescription.Contains(_productDescriptions[2]) ||
+                ProductDescription.Contains(_productDescriptions[3]) ||
+                ProductDescription.Contains(_productDescriptions[4]))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool NegativeProductFeedback()
+        {
+            if (ProductDescription.Contains(_productDescriptions[5]) ||
+                ProductDescription.Contains(_productDescriptions[6]) ||
+                ProductDescription.Contains(_productDescriptions[7]) ||
+                ProductDescription.Contains(_productDescriptions[8]) ||
+                ProductDescription.Contains(_productDescriptions[9]))
             {
                 return true;
             }
