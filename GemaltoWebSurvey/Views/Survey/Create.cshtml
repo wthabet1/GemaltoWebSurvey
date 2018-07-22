@@ -1,7 +1,7 @@
 ﻿@model GemaltoWebSurvey.Models.Survey
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "";
 }
 
 <h2>Customer Satisfaction Survey</h2>
@@ -12,20 +12,19 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Survey</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.Recommendation, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.Recommendation, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.EditorFor(model => model.Recommendation, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Recommendation, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Satisfaction, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.Satisfaction, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.DropDownListFor(model => model.Satisfaction,
                                   new SelectList(Model.GetSatisfactionLevels()),
                                   "-- Select Response --",
@@ -36,8 +35,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.ListBoxFor(model => model.ProductDescription,
                                   new MultiSelectList(Model.GetProductDescriptionOptions()),
                                   new { size = Model.GetProductDescriptionOptions().Count, @class = "form-control" })
@@ -47,8 +46,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Suitability, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.Suitability, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
 
             @Html.ValidationMessageFor(model => model.Suitability, "", new { @class = "text-danger" })
             @Html.DropDownListFor(model => model.Suitability,
@@ -60,8 +59,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ProductQuality, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.ProductQuality, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.DropDownListFor(model => model.ProductQuality,
                                   new SelectList(Model.GetQualityOptions()),
                                   "-- Select Response --",
@@ -71,8 +70,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ValueForMoney, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.ValueForMoney, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.DropDownListFor(model => model.ValueForMoney,
                                   new SelectList(Model.GetValueForMoneyOptions()),
                                   "-- Select Response --",
@@ -82,8 +81,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Responsiveness, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.Responsiveness, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.DropDownListFor(model => model.Responsiveness,
                                   new SelectList(Model.GetResponsivenessOptions()),
                                   "-- Select Response --",
@@ -93,8 +92,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CustomerHistory, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.CustomerHistory, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.DropDownListFor(model => model.CustomerHistory,
                                   new SelectList(Model.GetTimeAsCustomerOptions()),
                                   "-- Select Response --",
@@ -104,8 +103,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Repurchase, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.Repurchase, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.DropDownListFor(model => model.Repurchase,
                                   new SelectList(Model.GetRepurchaseLikelihoodOptions()),
                                   "-- Select Response --",
@@ -115,8 +114,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-6" })
-        <div class="col-md-6">
+        @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-8" })
+        <div class="col-md-4">
             @Html.TextAreaFor(model => model.Comments, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
         </div>
@@ -124,15 +123,11 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Submit" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
