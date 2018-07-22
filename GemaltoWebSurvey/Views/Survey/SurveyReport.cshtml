@@ -1,15 +1,14 @@
 ﻿@model GemaltoWebSurvey.Models.SurveyReport
 
 @{
-    ViewBag.Title = "SurveyReport";
+    ViewBag.Title = "";
 }
 
-<h2>SurveyReport</h2>
-
 <div>
-    <h4>SurveyReport</h4>
+    <h2>General Statistics on survey</h2>
     <hr />
-    <dl class="dl-horizontal">
+    
+    <dl class="dropdown-menu-right">
         <dt>
             @Html.DisplayNameFor(model => model.SurveyTakers)
         </dt>
@@ -93,6 +92,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Survey", "TakeSurvey")
 </p>
