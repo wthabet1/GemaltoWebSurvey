@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GemaltoWebSurvey.Models; 
+using GemaltoWebSurvey.Models;
+using Newtonsoft.Json;
 
 namespace GemaltoWebSurvey.Controllers
 {
@@ -30,17 +31,27 @@ namespace GemaltoWebSurvey.Controllers
 
         // POST: Survey/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Survey newSurvey)
         {
             try
             {
                 // TODO: Add insert logic here
+                string strNewSurveyAsJoson =  JsonConvert.SerializeObject(newSurvey) + ",";
+                var dataFile = Server.MapPath("~/App_Data/data.txt");
+                if (!System.IO.File.Exists(dataFile))
+                {
+                    System.IO.File.WriteAllText(@dataFile, strNewSurveyAsJoson);
+                }
+                else
+                {
+                    System.IO.File.AppendAllText(@dataFile, strNewSurveyAsJoson);
+                }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             catch
             {
-                return View();
+                return View(newSurvey);
             }
         }
 
