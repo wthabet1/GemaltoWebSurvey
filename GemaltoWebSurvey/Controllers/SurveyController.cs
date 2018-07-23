@@ -53,7 +53,6 @@ namespace GemaltoWebSurvey.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
                 string strNewSurveyAsJoson =  JsonConvert.SerializeObject(newSurvey) + ",";
                 var dataFile = Server.MapPath("~/App_Data/data.txt");
                 if (!System.IO.File.Exists(dataFile))

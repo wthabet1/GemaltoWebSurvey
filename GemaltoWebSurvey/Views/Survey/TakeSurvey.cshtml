@@ -1,11 +1,14 @@
 ﻿@model GemaltoWebSurvey.Models.Survey
 
 @{
-    ViewBag.Title = "";
+    ViewBag.Title = "TakeSurvey";
 }
 
 <h2>Customer Satisfaction Survey</h2>
 
+<div class="text-danger">
+    <h2>@ViewBag.Error</h2>
+</div>
 
 @using (Html.BeginForm()) 
 {
