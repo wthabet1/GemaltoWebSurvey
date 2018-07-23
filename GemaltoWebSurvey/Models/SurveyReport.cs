@@ -27,7 +27,11 @@ namespace GemaltoWebSurvey.Models
             SurveyTakers = surveys.Count();
             foreach (Survey survey in surveys)
             {
-                _dblRecommondataion += (double)survey.Recommendation;
+                if (survey.Recommendation != null)
+                {
+                    _dblRecommondataion += (double)survey.Recommendation;
+                }
+
                 if (survey.Satisfied()) _intSatisfiedCustomers++;
                 if (survey.HighQuality()) _intHighQualityResponse++;
                 if (survey.Suitable()) _intSuitableProductResp++;
@@ -58,7 +62,7 @@ namespace GemaltoWebSurvey.Models
                 EstablishedCustomers = Math.Round((double)_intEstablishedCustomer / SurveyTakers, 2);
                 ValueForMoney = Math.Round((double)_intValueForMoneyResp / SurveyTakers, 2);
                 ResponsiveCustomerCare = Math.Round((double)_intResponsiveCustomerCare / SurveyTakers, 2);
-                LikelyToRepurchase = Math.Round((double)_intLikelyToRepurchase/SurveyTakers, 2);
+                LikelyToRepurchase = Math.Round((double)_intLikelyToRepurchase / SurveyTakers, 2);
             }
         }
 
