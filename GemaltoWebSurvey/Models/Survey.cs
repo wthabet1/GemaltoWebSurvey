@@ -17,7 +17,7 @@ namespace GemaltoWebSurvey.Models
             Suitability = string.Empty;
             ProductQuality = string.Empty;
             ValueForMoney = string.Empty;
-            Responsiveness = string.Empty;
+            CustomerCare = string.Empty;
             CustomerHistory = string.Empty;
             Repurchase = string.Empty;
             Comments = string.Empty;
@@ -35,7 +35,7 @@ namespace GemaltoWebSurvey.Models
         [Required]
         [DisplayName("3. Which of the following words would you use to describe our products? Select all that apply.")]
         public List<string> ProductDescription { get; set; }
-        
+
         [Required]
         [DisplayName("4. How well do our products meet your needs?")]
         public string Suitability { get; set; }
@@ -50,7 +50,7 @@ namespace GemaltoWebSurvey.Models
 
         [Required]
         [DisplayName("7. How responsive have we been to your questions or concerns about our products?")]
-        public string Responsiveness { get; set; }
+        public string CustomerCare { get; set; }
 
         [Required]
         [DisplayName("8. How long have you been a customer of our company?")]
@@ -67,7 +67,7 @@ namespace GemaltoWebSurvey.Models
 
         public bool Satisfied()
         {
-            if(Satisfaction.Equals(_strSatisfactionLevels[0]) || Satisfaction.Equals(_strSatisfactionLevels[1]))
+            if (Satisfaction.Equals(_strSatisfactionLevels[0]) || Satisfaction.Equals(_strSatisfactionLevels[1]))
             {
                 return true;
             }
@@ -101,14 +101,23 @@ namespace GemaltoWebSurvey.Models
             return false;
         }
 
-        public bool IsResponsive()
+        public bool IsCustomerCareResponsive(out bool blnApplicable)
         {
-            if (Responsiveness.Equals(_responsiveness[0]) || Responsiveness.Equals(_responsiveness[1]))
+            blnApplicable = true;
+            if (CustomerCare.Equals(_responsiveness[0]) || CustomerCare.Equals(_responsiveness[1]))
             {
+                return true;
+            }
+
+            if (CustomerCare.Equals(_responsiveness.Last()))
+            {
+                //Not sure if this case is applicable
+                blnApplicable = false;
                 return true;
             }
             return false;
         }
+
 
         public bool EstablishedCustomer()
         {
@@ -139,6 +148,17 @@ namespace GemaltoWebSurvey.Models
                 ProductDescription.Contains(_productDescriptions[7]) ||
                 ProductDescription.Contains(_productDescriptions[8]) ||
                 ProductDescription.Contains(_productDescriptions[9]))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool LikelyToRepurchase()
+        {
+            if (Repurchase.Equals(_repurchaseLikelihood[0]) ||
+                Repurchase.Equals(_repurchaseLikelihood[1]) ||
+                Repurchase.Equals(_repurchaseLikelihood[2]))
             {
                 return true;
             }

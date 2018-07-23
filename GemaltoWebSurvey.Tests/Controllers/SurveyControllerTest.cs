@@ -26,19 +26,6 @@ namespace GemaltoWebSurvey.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
-        {
-            // Arrange
-            SurveyController controller = new SurveyController();
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
         public void SurveyReport()
         {
             // Arrange
