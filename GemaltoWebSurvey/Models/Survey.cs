@@ -62,6 +62,7 @@ namespace GemaltoWebSurvey.Models
 
         [DataType(DataType.MultilineText)]
         [DisplayName("10. Do you have any other comments, questions, or concerns?")]
+        [StringLength(500)]
         public string Comments { get; set; }
 
         public bool Satisfied()
