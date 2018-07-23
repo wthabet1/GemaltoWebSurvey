@@ -11,7 +11,7 @@ namespace GemaltoWebSurvey.Controllers
     public class SurveyController : Controller
     {
         // GET: Survey
-        public ActionResult Index()
+        public ActionResult ThankYou()
         {
             return View();
         }
@@ -43,6 +43,7 @@ namespace GemaltoWebSurvey.Controllers
 
         // POST: Survey/TakeSurvey
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult TakeSurvey(Survey newSurvey)
         {
             try
@@ -59,55 +60,12 @@ namespace GemaltoWebSurvey.Controllers
                     System.IO.File.AppendAllText(@dataFile, strNewSurveyAsJoson);
                 }
 
-                return RedirectToAction("TakeSurvey");
+                return RedirectToAction("ThankYou");
             }
-            catch
+            catch(Exception e)
             {
+                ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
                 return View(newSurvey);
-            }
-        }
-
-        // GET: Survey/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Survey/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Survey/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Survey/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
             }
         }
     }

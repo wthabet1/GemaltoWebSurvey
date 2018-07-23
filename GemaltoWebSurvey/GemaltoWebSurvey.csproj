@@ -197,6 +197,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Survey\TakeSurvey.cshtml" />
     <Content Include="Views\Survey\SurveyReport.cshtml" />
+    <Content Include="Views\Survey\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
