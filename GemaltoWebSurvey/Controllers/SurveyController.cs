@@ -10,6 +10,8 @@ namespace GemaltoWebSurvey.Controllers
 {
     public class SurveyController : Controller
     {
+        static private string _datastore = "~/App_Data/data.txt";
+
         // GET: Survey
         public ActionResult ThankYou()
         {
@@ -24,19 +26,30 @@ namespace GemaltoWebSurvey.Controllers
         // GET: Survey/SurveyReport
         public ActionResult SurveyReport()
         {
-            string strSurveyAsJsonObjects = string.Empty;
-            var dataFile = Server.MapPath("~/App_Data/data.txt");
-            if (System.IO.File.Exists(dataFile))
+            try
             {
-                strSurveyAsJsonObjects = System.IO.File.ReadAllText(@dataFile);
-                strSurveyAsJsonObjects = strSurveyAsJsonObjects.TrimEnd(',');
+                string strSurveyAsJsonObjects = string.Empty;
+                var dataFile = Server.MapPath(_datastore);
+                if (System.IO.File.Exists(dataFile))
+                {
+                    strSurveyAsJsonObjects = System.IO.File.ReadAllText(@dataFile);
 
-                strSurveyAsJsonObjects = "[" + strSurveyAsJsonObjects + "]";
-                List<Survey> surveys = JsonConvert.DeserializeObject<List<Survey>>(strSurveyAsJsonObjects);
-                SurveyReport report = new SurveyReport(surveys);
-                return View(report);
+                    //Format the list of Json objects to an array of json objects
+                    strSurveyAsJsonObjects = strSurveyAsJsonObjects.TrimEnd(',');
+                    strSurveyAsJsonObjects = "[" + strSurveyAsJsonObjects + "]";
+
+                    List<Survey> surveys = JsonConvert.DeserializeObject<List<Survey>>(strSurveyAsJsonObjects);
+                    SurveyReport report = new SurveyReport(surveys);
+                    return View(report);
+                }
             }
-            return View();
+            catch(Exception e)
+            {
+                ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
+            }
+
+            //If I am here, return an empty report
+            return View(new SurveyReport(new List<Survey>()));
         }
 
         // GET: Survey/TakeSurvey
@@ -53,8 +66,8 @@ namespace GemaltoWebSurvey.Controllers
         {
             try
             {
-                string strNewSurveyAsJoson =  JsonConvert.SerializeObject(newSurvey) + ",";
-                var dataFile = Server.MapPath("~/App_Data/data.txt");
+                string strNewSurveyAsJoson = JsonConvert.SerializeObject(newSurvey) + ",";
+                var dataFile = Server.MapPath(_datastore);
                 if (!System.IO.File.Exists(dataFile))
                 {
                     System.IO.File.WriteAllText(@dataFile, strNewSurveyAsJoson);
@@ -66,7 +79,7 @@ namespace GemaltoWebSurvey.Controllers
 
                 return RedirectToAction("ThankYou");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ViewBag.Error = e?.Message + ":" + e?.InnerException?.Message;
                 return View(newSurvey);
