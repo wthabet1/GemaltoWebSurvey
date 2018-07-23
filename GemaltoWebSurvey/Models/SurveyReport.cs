@@ -52,7 +52,7 @@ namespace GemaltoWebSurvey.Models
             }
         }
 
-
+        [DisplayName("Number of Customers who took survey")]
         public int SurveyTakers { get; }
 
         [DisplayName("Average Recommendation")]

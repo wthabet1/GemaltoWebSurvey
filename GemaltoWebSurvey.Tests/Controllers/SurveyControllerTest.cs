@@ -10,16 +10,16 @@ using GemaltoWebSurvey.Controllers;
 namespace GemaltoWebSurvey.Tests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class SurveyControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void TakeSurvey()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            SurveyController controller = new SurveyController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controller.TakeSurvey() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
@@ -29,7 +29,7 @@ namespace GemaltoWebSurvey.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            SurveyController controller = new SurveyController();
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -39,14 +39,14 @@ namespace GemaltoWebSurvey.Tests.Controllers
         }
 
         [TestMethod]
-        public void Contact()
+        public void SurveyReport()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            SurveyController controller = new SurveyController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
+            ViewResult result = controller.SurveyReport() as ViewResult;
+       
             // Assert
             Assert.IsNotNull(result);
         }

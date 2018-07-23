@@ -16,6 +16,11 @@ namespace GemaltoWebSurvey.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
+
         // GET: Survey/SurveyReport
         public ActionResult SurveyReport()
         {
