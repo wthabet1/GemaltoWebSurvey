@@ -17,7 +17,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Recommendation, htmlAttributes: new { @class = "control-label col-md-8" })
         <div class="col-md-4">
-            @Html.EditorFor(model => model.Recommendation, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Recommendation, new { htmlAttributes = new { @class = "form-control", title = "The scale goes from 0 for unlikely to 10 for likely"} })
             @Html.ValidationMessageFor(model => model.Recommendation, "", new { @class = "text-danger" })
         </div>
     </div>
